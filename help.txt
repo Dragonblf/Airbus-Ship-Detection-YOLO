@@ -1,0 +1,9 @@
+model:
+	experiment_dir: Directory where to save all relevant files for the training of the model
+	anchors: Anchors used for training
+	labels: Labels to use for the training
+	
+train:
+	train_image_folder: Path to directory containing all training images
+	train_annot_folder: Path to directory containing all training annotations in voc-format
+	train_annot_yolo_file: Path to save the training annotations in new and used format

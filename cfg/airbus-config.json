@@ -1,0 +1,52 @@
+{
+	"experiment_dir": "experiments/AirbusShipDetection",
+	"anchors": "5,5, 12,9, 19,21, 22,49, 42,35, 43,16, 59,83, 96,39, 121,93",
+	"labels": ["Ship"],
+	"seed": 48854,
+
+	"model": {
+		"img_width": 384,
+		"img_height": 384,
+		"num_channels": 3,
+		"show_summary": false,
+
+		"dir": {
+			"log_dir": "Logs",
+			"tensorboard_dir": "Tensorboard",
+			"checkpoint_dir": "Checkpoints",
+			"trained_dir": "Trained"
+		},
+		"convert": {
+			"anno_dir": "/kaggle/input/annotations",
+			"train_annot_yolo_file": "ship_boxes.txt"
+		},
+		"train": {
+			"train_image_folder": "/kaggle/input/airbus-ship-detection/train_v2",
+			"train_on_all_layers": true,
+			"initial_epoch": 0,	
+			"num_epochs": 50,
+			"batch_size": 16,
+			"weights": "/kaggle/working/Airbus-Ship-Detection-YOLO/framework/model_data/yolo3.h5",
+			"verbose": 1,
+			"num_workers": 2,
+			"use_multiprocessing": false,
+			"shuffle": true,
+			"ignore_tresh": 0.5,
+			"val_split": 0.2,
+
+			"optimizer": {
+                "variante": "SGD",
+                "lr": 0.01,
+                "momentum": 0.0,
+                "decay": 0.0,
+                "nesterov": false,
+                "rho": 0.9,
+                "epsilon": null,
+                "beta_1": 0.9,
+                "beta_2": 0.999,
+                "amsgrad": false,
+                "schedule_decay": 0.004
+            }
+		}
+	}
+}
