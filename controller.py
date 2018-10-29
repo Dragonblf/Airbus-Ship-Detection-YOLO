@@ -114,7 +114,7 @@ class YOLO(object):
         self.ignore_tresh = args.model.train.ignore_tresh
         self.val_split = args.model.train.val_split
 
-        if self.mode is in ("Train", "Retrain"):
+        if self.mode in ("Train", "Retrain"):
             self.num_images_to_train = args.model.train.num_images_to_train
 
         # TODO - Optimizer 
