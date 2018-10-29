@@ -114,6 +114,9 @@ class YOLO(object):
         self.ignore_tresh = args.model.train.ignore_tresh
         self.val_split = args.model.train.val_split
 
+        if self.mode is in ("Train", "Retrain"):
+            self.num_images_to_train = args.model.train.num_images_to_train
+
         # TODO - Optimizer 
        
     def __initialize_seeds(self):
@@ -186,6 +189,9 @@ class YOLO(object):
         print("==> Reading annotation file")
         with open(self.annotation_file, "r") as f:
             lines = f.readlines()
+
+            if self.num_images_to_train:
+                lines = lines[:self.num_images_to_train]
         print("==> Found {} lines".format(len(lines)))
         
         if self.shuffle:

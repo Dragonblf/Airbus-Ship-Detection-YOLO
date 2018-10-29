@@ -23,6 +23,7 @@
 		"train": {
 			"train_image_folder": "/kaggle/input/airbus-ship-detection/train_v2",
 			"train_on_all_layers": true,
+			"num_images_to_train": 10000,
 			"initial_epoch": 0,	
 			"num_epochs": 50,
 			"batch_size": 16,
